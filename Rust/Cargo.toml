@@ -1,0 +1,10 @@
+[package]
+name = "shopify"
+version = "0.1.0"
+authors = ["Scetch <lucierbrandon@gmail.com>"]
+
+[dependencies]
+serde_json = "1.0.17"
+serde = "1.0.53"
+serde_derive = "1.0.53"
+reqwest = "0.8.5"
