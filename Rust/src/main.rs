@@ -64,12 +64,11 @@ fn get_cart(id: u32) -> impl Iterator<Item = Result<impl Iterator<Item = Product
                     let stop = page + 1 > (total as f32 / per_page as f32).ceil() as u32;
                     (Ok(products.into_iter()), stop)
                 })
-                .unwrap_or_else(|e| (Err(e), false));
+                .unwrap_or_else(|e| (Err(e), true));
 
             state.1 = stop;
             Some(products)
         })
-        .fuse()
 }
 
 fn calculate(Discount { id, discount_value, discount_type }: Discount) -> Result<(f32, f32), reqwest::Error> {
